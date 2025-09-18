@@ -45,3 +45,26 @@ document.querySelectorAll('.project-card').forEach(card => {
         this.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
     });
 });
+
+// Модальное окно для калькулятора
+const modal = document.getElementById("videoModal");
+const btn = document.getElementById("openModal");
+const span = document.querySelector(".close");
+
+if (btn) {
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+}
+
+if (span) {
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
