@@ -46,25 +46,24 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Модальное окно для калькулятора
-const modal = document.getElementById("videoModal");
-const btn = document.getElementById("openModal");
-const span = document.querySelector(".close");
 
-if (btn) {
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-}
+const modal = document.getElementById('videoModal');
+const openBtn = document.getElementById('openVideo');
+const closeBtn = document.querySelector('.modal .close');
 
-if (span) {
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
-}
+// Открытие модалки
+openBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
 
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+// Закрытие модалки при клике на крестик
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+// Закрытие модалки при клике вне контента
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
